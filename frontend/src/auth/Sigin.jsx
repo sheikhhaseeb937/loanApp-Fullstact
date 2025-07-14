@@ -76,8 +76,7 @@ const handleLogin = async (e) => {
 
 
   try {
-    // http://localhost:8080/login/login
-    const res = await axios.post(`${import.meta.env.VITE_BASE_URL}login/login`, {
+    const res = await axios.post("http://localhost:8080/login/login", {
       email,
       password,
     });
