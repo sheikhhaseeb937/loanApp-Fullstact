@@ -133,7 +133,7 @@ router.post("/login", async (req, res) => {
     if (!isPasswordValid) {
       return res
         .status(400)
-        .json({ message: "Invalid email or password", error: error.message });
+        .json({ message: "Invalid email or password" });
       
     }
 

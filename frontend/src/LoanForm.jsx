@@ -51,9 +51,10 @@ const response = await axios.post('http://localhost:8080/submit',formData)
  }
 })
 .catch((error)=>{
-console.log(error)
+  console.log(error)
+// console.log(error.response.data.message);
 
-toast.error("SigUp not created successfully", {
+toast.error(error?.response?.data?.message, {
           position: "top-right",
           autoClose: 1000,
           theme: "dark",

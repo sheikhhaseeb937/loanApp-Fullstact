@@ -8,7 +8,7 @@ import { Password } from "primereact/password";
 import { Dropdown } from "primereact/dropdown";
 
 import { Button } from "primereact/button";
-import { Link, useNavigate } from "react-router-dom";
+import { data, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 
@@ -31,6 +31,8 @@ const Signup = () => {
         transition: Bounce,
       });
     }
+    // "http://localhost:8080/signup"
+    // ${import.meta.env.VITE_BASE_URL}signup`
 
     const response = await axios
       .post("http://localhost:8080/signup", {
@@ -51,11 +53,13 @@ const Signup = () => {
           localStorage.setItem('email',email)
        navigate('/Otp')
         }
-
+return
       })
+      
       .catch((error) => {
-        console.log(error);
-        toast.error("SigUp not created successfully", {
+       console.log(error.response.data.message);
+       
+        toast.error(error?.response?.data?.message, {
           position: "top-right",
           autoClose: 1000,
           theme: "dark",

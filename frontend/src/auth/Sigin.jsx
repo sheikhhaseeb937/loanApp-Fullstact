@@ -73,13 +73,11 @@ const handleLogin = async (e) => {
  // 🟢 Start loading
   setLoading(true); 
  
-
-
-  try {
-    const res = await axios.post("http://localhost:8080/login", {
-      email,
-      password,
-    });
+const res = await axios.post("http://localhost:8080/login", {
+  email,
+  password
+}).then((res) => {
+    console.log(res);
 
     const token = res?.data?.accessToken;
     if (token) {
@@ -92,18 +90,56 @@ const handleLogin = async (e) => {
       });
       navigate("/");
     }
-  } catch (error) {
-    toast.error(error?.response?.data?.message || "Login failed", {
+})
+.catch((error)=>{
+  console.log(error);
+ toast.error(error?.response?.data?.message || "Login failed", {
       position: "top-left",
       autoClose: 3000,
       theme: "light",
       transition: Bounce,
-    });
-  }
-   finally {
-    setLoading(false); //  Stop loading regardless of success or error
-  }
-};
+
+    })
+    
+ 
+}
+) 
+  .finally(() => {
+   
+    setLoading(false); 
+  }); 
+
+}
+
+//   try {
+//     const res = await axios.post("http://localhost:8080/login", {
+//       email,
+//       password,
+//     });
+
+//     const token = res?.data?.accessToken;
+//     if (token) {
+//       localStorage.setItem("token", token);
+//       toast.success("Login successful", {
+//         position: "top-right",
+//         autoClose: 1000,
+//         theme: "light",
+//         transition: Bounce,
+//       });
+//       navigate("/");
+//     }
+//   } catch (error) {
+//     toast.error(error?.response?.data?.message || "Login failed", {
+//       position: "top-left",
+//       autoClose: 3000,
+//       theme: "light",
+//       transition: Bounce,
+//     });
+//   }
+//    finally {
+//     setLoading(false); 
+//   }
+// };
 
   
 

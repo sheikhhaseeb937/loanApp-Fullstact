@@ -48,9 +48,9 @@ router.post("/submit", async (req, res) => {
     newform
     });
   } catch (error) {
-    console.error("Loan form error:", error.message);
+    console.error("Loan form  not submitted:");
     res.status(500).json({
-      message: "An error occurred while submitting the loan form",
+      message: "Loan form error not submitted:",
       error: error.message,
     });
   }
