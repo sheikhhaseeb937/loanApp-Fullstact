@@ -35,7 +35,7 @@ const Signup = () => {
     // ${import.meta.env.VITE_BASE_URL}signup`
 
     const response = await axios
-      .post(`${import.meta.env.VITE_BASE_URL}signup`, {
+      .post(`${import.meta.env.VITE_BASE_URL || "http://localhost:8080"}signup`, {
         name,
         email,
         password,
