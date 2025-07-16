@@ -35,7 +35,7 @@ const Signup = () => {
     // ${import.meta.env.VITE_BASE_URL}signup`
 
     const response = await axios
-      .post("http://localhost:8080/signup", {
+      .post(`${import.meta.env.VITE_BASE_URL}signup`, {
         name,
         email,
         password,
@@ -57,7 +57,7 @@ return
       })
       
       .catch((error) => {
-       console.log(error.response.data.message);
+      //  console.log(error.response.data.message);
        
         toast.error(error?.response?.data?.message, {
           position: "top-right",
