@@ -38,7 +38,7 @@ const LoanForm = () => {
 
 
 
-const response = await axios.post('http://localhost:8080/api/submit',formData)
+const response = await axios.post('http://localhost:8080/submit',formData)
 .then((res)=>{
  console.log(res)
  if(res){

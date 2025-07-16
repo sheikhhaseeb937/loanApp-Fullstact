@@ -108,7 +108,7 @@ router.post("/login", async (req, res) => {
       return res
         .status(400)
         .json({ message: "Email and password are required" });
-         return
+        
     }
 
     const user = await User.findOne({ email });
@@ -118,14 +118,14 @@ router.post("/login", async (req, res) => {
       return res
         .status(400)
         .json({ message: "Invalid email or password", error: error.message });
-         return
+    
     }
     if (!user.isActive) {
       return res.status(401).json({
         message: "Please verify your email",
         error: error.message,
       });
-       return
+    
     }
 
     const isPasswordValid = bcrypt.compareSync(password, user.password);
@@ -134,7 +134,7 @@ router.post("/login", async (req, res) => {
       return res
         .status(400)
         .json({ message: "Invalid email or password", error: error.message });
-         return
+      
     }
 
     const accessToken = jwt.sign(

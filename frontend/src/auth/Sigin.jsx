@@ -76,7 +76,7 @@ const handleLogin = async (e) => {
 
 
   try {
-    const res = await axios.post("http://localhost:8080/login/login", {
+    const res = await axios.post("http://localhost:8080/login", {
       email,
       password,
     });

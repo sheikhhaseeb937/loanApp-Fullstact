@@ -45,7 +45,7 @@ console.log(email)
     try {
       // http://localhost:8080/isActive/isActive
       // `${import.meta.env.VITE_BASE_URL || "http://localhost:8080/"}isActive/isActive`
-      const response = await axios.post("http://localhost:8080/isActive/isActive", { otp,email });
+      const response = await axios.post("http://localhost:8080/isActive", { otp,email });
       setSuccess("OTP Verified Successfully!");
       console.log("Response:", response.data);
       ///nagvaite sigin page

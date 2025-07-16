@@ -31,7 +31,7 @@ const handlesubmit = async (e) => {
   console.log(contactData); // Optional debug
 
   try {
-    const response = await axios.post("http://localhost:8080/api/contactus", contactData);
+    const response = await axios.post("http://localhost:8080/contactus", contactData);
 console.log(response)
     if (response && response.data) {
       setEmail("")

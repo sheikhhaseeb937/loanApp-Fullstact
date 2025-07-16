@@ -30,11 +30,11 @@ app.get("/", (req, res) => {
     res.send("Welcome to Loan Application API");
 })
 
-app.use("/signup", authroutes);
-app.use("/login", authroutes);
-app.use("/api",loanform);
-app.use('/api',contact);
-app.use("/isActive",authroutes)
+app.use("/", authroutes);
+
+app.use("/",loanform);
+app.use('/',contact);
+
 
 
     
