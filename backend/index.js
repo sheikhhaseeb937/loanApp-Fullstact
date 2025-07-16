@@ -14,24 +14,21 @@ const app = express();
 const PORT = 8080
 
 /////middlewares
-app.use(express.json());
 
-// const allowedOrigins = [
-//   "http://localhost:5173",
-//   "https://loan-app-fullstact-cw64.vercel.app",
-// ];
+
+
   
 
 const allowedOrigins = [
-  "http://localhost:8080",
+  "http://localhost:5173",
   "https://loan-app-fullstact-cw64.vercel.app",
 ];
 
 const corsOptions = {
-  origin: allowedOrigins, // your frontend domain!
+  origin: allowedOrigins, 
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
 };
-
+app.use(express.json());
 app.use(cors(corsOptions))
 ///env
 dotenv.config();
@@ -45,10 +42,10 @@ app.get("/", (req, res) => {
     res.send("Welcome to Loan Application API");
 })
 
-app.use("/", authroutes);
+app.use("/api", authroutes);
 
-app.use("/",loanform);
-app.use('/',contact);
+app.use("/api",loanform);
+app.use('/api',contact);
 
 
 
