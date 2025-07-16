@@ -15,19 +15,19 @@ const PORT = 8080
 
 /////middlewares
 
-
-
-  
-
 const allowedOrigins = [
   "http://localhost:5173",
   "https://loan-app-fullstact-cw64.vercel.app",
 ];
 
 const corsOptions = {
-  origin: allowedOrigins, 
+  origin: allowedOrigins, // your frontend domain!
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
 };
+
+  
+
+
 app.use(express.json());
 app.use(cors(corsOptions))
 ///env
@@ -44,8 +44,8 @@ app.get("/", (req, res) => {
 
 app.use("/api", authroutes);
 
-app.use("/api",loanform);
-app.use('/api',contact);
+app.use("/",loanform);
+app.use('/',contact);
 
 
 

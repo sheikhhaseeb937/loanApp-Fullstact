@@ -14,51 +14,7 @@ const Sigin = () => {
   const [loading, setLoading] = useState(false);
 
 
-//   const handleLogin = async (e) => {
-//     e.preventDefault(); // ✅ Prevent page reload
 
-//     if (!email || !password) {
-//       toast.error("Email and password are required", {
-//         position: "top-right",
-//         autoClose: 3000,
-//         theme: "light",
-//         transition: Bounce,
-//       });
-//       return;
-//     }
-
-//     const response = await axios.post("http://localhost:8080/login/login", {
-//         email,
-//         password,
-//       }).then((res)=>{
-// const token = res?.data?.accessToken;
-//       if (token) {
-//         localStorage.setItem("token", token);
-
-//         toast.success("Login successful", {
-//           position: "top-right",
-//           autoClose: 1000,
-//           theme: "light",
-//           transition: Bounce,
-//         });
-
-//         // ✅ Navigate without reload
-//         navigate("/");
-//       }
-// }).catch((error)=>{
-//   console.log(error)
-//   toast.error(error?.response?.data?.message, {
-//         position: "top-left",
-//         autoClose: 3000,
-//         theme: "light",
-//         transition: Bounce,
-//       });
-// })
-  
-
-
- 
-//   }
 const handleLogin = async (e) => {
   e.preventDefault();
   if (!email || !password) {
@@ -73,7 +29,7 @@ const handleLogin = async (e) => {
  // 🟢 Start loading
   setLoading(true); 
 //  "http://localhost:8080/login"
-const res = await axios.post(`${import.meta.env.VITE_BASE_URL}login`, {
+const res = await axios.post("http://localhost:8080/api/login", {
   email,
   password
 }).then((res) => {

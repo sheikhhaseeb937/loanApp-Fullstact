@@ -38,29 +38,29 @@ const LoanForm = () => {
 
 
 
-const response = await axios.post('http://localhost:8080/submit',formData)
-.then((res)=>{
- console.log(res)
- if(res){
-    toast.success(res?.data?.message, {
-           position: "top-right",
-           autoClose: 1000,
-           theme: "dark",
-           transition: Bounce,
-         });
- }
-})
-.catch((error)=>{
-  console.log(error)
-// console.log(error.response.data.message);
+try {
+  const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/submit`, formData, {
+    withCredentials: true, // only needed if your backend uses cookies or sessions
+  });
 
-toast.error(error?.response?.data?.message, {
-          position: "top-right",
-          autoClose: 1000,
-          theme: "dark",
-          transition: Bounce,
-        });
-})
+  console.log(response);
+
+  toast.success(response?.data?.message || "Form submitted successfully", {
+    position: "top-right",
+    autoClose: 1000,
+    theme: "dark",
+    transition: Bounce,
+  });
+} catch (error) {
+  console.error(error?.response || error);
+
+  toast.error(error?.response?.data?.message || "Form submission failed", {
+    position: "top-right",
+    autoClose: 1000,
+    theme: "dark",
+    transition: Bounce,
+  });
+}
 
  
  

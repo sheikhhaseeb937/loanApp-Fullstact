@@ -19,6 +19,8 @@ const Signup = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
     const navigate = useNavigate()
+
+
   async function handleChange(e) {
     console.log(name, email, password);
 
@@ -35,7 +37,7 @@ const Signup = () => {
     // ${import.meta.env.VITE_BASE_URL}signup`
 
     const response = await axios
-      .post(`${import.meta.env.VITE_BASE_URL || "http://localhost:8080"}api/signup`, {
+      .post("http://localhost:8080/api/signup", {
         name,
         email,
         password,
