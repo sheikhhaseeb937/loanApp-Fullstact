@@ -40,7 +40,7 @@ const Signup = () => {
         email,
         password,
       })
-      
+      console.log(response)
       .then((res) => {
         console.log(res);
         if (res) {

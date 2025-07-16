@@ -15,6 +15,7 @@ const PORT = 8080
 
 /////middlewares
 app.use(express.json());
+
 const allowedOrigins = [
   "http://localhost:5173",
   "https://loan-app-fullstact-cw64.vercel.app",
