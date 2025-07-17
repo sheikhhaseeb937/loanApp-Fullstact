@@ -12,7 +12,7 @@ import { data, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 
-// import Cards from "../pages/Cards";
+
 
 const Signup = () => {
   const [name, setName] = useState(null);
@@ -33,20 +33,16 @@ const Signup = () => {
         transition: Bounce,
       });
     }
-    // "http://localhost:8080/signup"
-    // ${import.meta.env.VITE_BASE_URL}signup`
-
+ 
     const response = await axios
-      .post("http://localhost:8080/api/signup", {
+      .post(`${import.meta.env.VITE_BASE_URL}/api/signup`, {
         name,
         email,
         password,
       })
-      console.log(response)
-      .then((res) => {
-        console.log(res);
-        if (res) {
-          toast.success(res?.data?.message, {
+      try {
+        if (response) {
+          toast.success(response?.data?.message, {
             position: "top-right",
             autoClose: 1000,
             theme: "dark",
@@ -56,19 +52,17 @@ const Signup = () => {
        navigate('/Otp')
         }
 return
-      })
-      
-      .catch((error) => {
-      //  console.log(error.response.data.message);
-       
-        toast.error(error?.response?.data?.message, {
+      } catch (error) {
+          toast.error(error?.response?.data?.message, {
           position: "top-right",
           autoClose: 1000,
           theme: "dark",
           transition: Bounce,
         });
-      });
-  }
+      
+      }
+    }
+
   return (
     <>
       <ToastContainer />

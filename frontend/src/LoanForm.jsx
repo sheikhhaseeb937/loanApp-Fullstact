@@ -40,7 +40,7 @@ const LoanForm = () => {
 
 try {
   const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/submit`, formData, {
-    withCredentials: true, // only needed if your backend uses cookies or sessions
+
   });
 
   console.log(response);
