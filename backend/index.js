@@ -17,9 +17,9 @@ const PORT = 8080
 
 
 app.use(cors({
-  origin: "*",
+  origin: ["http://localhost:5173", "https://loan-app-fullstact.vercel.app"],
   methods: ["GET", "POST", "PUT", "DELETE"],
-  
+
 
 }));
   
