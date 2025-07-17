@@ -41,8 +41,8 @@ app.get("/", (req, res) => {
 
 app.use("/api", authroutes);
 
-app.use("/",loanform);
-app.use('/',contact);
+app.use("/api",loanform);
+app.use('/api',contact);
 
 
 

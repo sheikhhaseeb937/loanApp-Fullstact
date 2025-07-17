@@ -39,7 +39,7 @@ const LoanForm = () => {
 
 
 try {
-  const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/submit`, formData, {
+  const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/submit`, formData, {
 
   });
 
